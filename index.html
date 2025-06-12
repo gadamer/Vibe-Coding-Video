@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <!-- Production-ready meta tags -->
   <meta name="description" content="Experience programming in a relaxed, aesthetic environment that boosts creativity and productivity with Vibe Coding.">
   <meta name="keywords" content="coding, programming, lofi, productivity, aesthetic coding, developer lifestyle">
@@ -18,6 +20,83 @@
   <meta name="twitter:card" content="summary_large_image">
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  <style>
+    /* Video container styles */
+    .video-container {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background-color: #0f0f1a;
+    }
+    
+    /* Custom video player styles */
+    .plyr {
+      --plyr-color-main: #8a2be2;
+      --plyr-video-control-color: white;
+      --plyr-video-control-color-hover: #8a2be2;
+      border-radius: 12px;
+    }
+    
+    /* Fallback content styles */
+    .video-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      background-color: #0f0f1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    
+    .video-fallback h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .video-fallback p {
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+    
+    .video-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .video-thumbnail {
+      width: 160px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .video-thumbnail:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #7c3aed;
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
   <div class="gradient-bg"></div>
@@ -52,14 +131,14 @@
       <div class="about-grid">
         <div class="about-text">
           <h2>What is <span class="gradient-text">Vibe Coding?</span></h2>
-          <p>Vibe Coding is more than just programming—it's a lifestyle that combines aesthetics, music, and productivity to create the perfect coding environment.</p>
-          <p>Whether you're a beginner or a seasoned developer, our approach helps you find your flow state and enjoy the process of creation.</p>
+          <p>Vibe Coding is more than just programming—it's a lifestyle that combines AI assistance, aesthetics, and productivity to create the perfect coding environment.</p>
+          <p>Whether you're a complete beginner with no coding experience or a seasoned developer, our approach helps you create amazing projects using simple English prompts.</p>
           <div class="features">
             <div class="feature">
-              <div class="feature-icon">🎵</div>
+              <div class="feature-icon">🤖</div>
               <div class="feature-text">
-                <h3>Lo-Fi Beats</h3>
-                <p>Curated music to help you focus</p>
+                <h3>AI Assistance</h3>
+                <p>Turn English prompts into working code</p>
               </div>
             </div>
             <div class="feature">
@@ -72,8 +151,8 @@
             <div class="feature">
               <div class="feature-icon">🧠</div>
               <div class="feature-text">
-                <h3>Flow State</h3>
-                <p>Techniques to achieve deep focus</p>
+                <h3>No Coding Required</h3>
+                <p>Create apps without learning syntax</p>
               </div>
             </div>
           </div>
@@ -87,12 +166,22 @@
 
   <section id="video" class="video-section">
     <div class="container">
-      <h2>Experience <span class="gradient-text">Vibe Coding</span></h2>
-      <p class="section-subtitle">Watch this video to get into the perfect coding mindset</p>
+      <h2>Start Your <span class="gradient-text">AI Coding Journey</span></h2>
+      <p class="section-subtitle">Perfect for complete beginners - learn how to create code using AI without any programming knowledge</p>
       
-      <!-- Production-ready YouTube embed -->
-      <div class="video-container" id="video-container">
-        <div id="youtube-player"></div>
+      <!-- Completely redesigned video section -->
+      <div id="video-container" class="video-container">
+        <!-- Custom video player will be inserted here -->
+        <div id="loading-indicator" class="video-fallback">
+          <div class="loading-spinner"></div>
+          <p>Loading video content...</p>
+        </div>
+      </div>
+      
+      <!-- Video selection options -->
+      <div class="video-options" id="video-options" style="display: none;">
+        <h3 style="width: 100%; text-align: center; margin-bottom: 1rem;">Choose a Video:</h3>
+        <!-- Video thumbnails will be inserted here -->
       </div>
     </div>
   </section>
@@ -101,7 +190,7 @@
     <div class="container">
       <div class="join-card">
         <h2>Join Our <span class="gradient-text">Vibe Coding</span> Community</h2>
-        <p>Get exclusive access to curated playlists, setup inspiration, and productivity tips.</p>
+        <p>Get exclusive access to AI prompt templates, setup inspiration, and productivity tips.</p>
         <form id="join-form">
           <input type="email" placeholder="Your email address" required>
           <button type="submit" class="btn primary-btn">Join Now</button>
@@ -116,31 +205,31 @@
       <div class="testimonial-grid">
         <div class="testimonial-card">
           <div class="testimonial-content">
-            <p>"Vibe Coding completely transformed how I approach programming. The aesthetic environment and music help me stay in flow state for hours."</p>
+            <p>"Vibe Coding completely transformed how I approach programming. I went from knowing zero code to building my own website in just one weekend using AI assistance."</p>
           </div>
           <div class="testimonial-author">
             <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Alex Chen">
             <div>
               <h4>Alex Chen</h4>
-              <p>Frontend Developer</p>
+              <p>Complete Beginner</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-content">
-            <p>"I never thought the environment could make such a difference. My productivity has doubled since I started following the Vibe Coding principles."</p>
+            <p>"I never thought I could create apps without learning to code. With AI-assisted Vibe Coding, I've built three projects for my business without writing a single line of code myself."</p>
           </div>
           <div class="testimonial-author">
             <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Sarah Johnson">
             <div>
               <h4>Sarah Johnson</h4>
-              <p>Full Stack Developer</p>
+              <p>Small Business Owner</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-content">
-            <p>"As a coding instructor, I recommend Vibe Coding to all my students. It makes learning more enjoyable and helps them stay motivated."</p>
+            <p>"As a coding instructor, I recommend Vibe Coding to all my students. It makes learning more enjoyable and helps them focus on concepts rather than syntax."</p>
           </div>
           <div class="testimonial-author">
             <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" alt="Marcus Williams">
@@ -167,7 +256,7 @@
           <div class="footer-column">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#">Playlists</a></li>
+              <li><a href="#">AI Prompt Templates</a></li>
               <li><a href="#">Setup Guide</a></li>
               <li><a href="#">Productivity Tips</a></li>
             </ul>
@@ -196,8 +285,8 @@
     </div>
   </footer>
 
-  <!-- YouTube API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script src="main.js" type="module"></script>
 </body>
 </html>

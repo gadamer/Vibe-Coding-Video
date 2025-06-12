@@ -6,7 +6,7 @@ export default defineConfig({
       overlay: false
     },
     watch: {
-      usePolling: true
+      usePolling: false // Changed from true to false
     }
   },
   build: {
@@ -19,9 +19,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['main.js']
-        }
+        manualChunks: undefined // Changed from a specific configuration
       }
     }
   }
