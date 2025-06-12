@@ -8,8 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-e9f3d6ac.js"></script>
-  <link rel="stylesheet" href="/assets/index-52b281bf.css">
+  <!-- Production-ready meta tags -->
+  <meta name="description" content="Experience programming in a relaxed, aesthetic environment that boosts creativity and productivity with Vibe Coding.">
+  <meta name="keywords" content="coding, programming, lofi, productivity, aesthetic coding, developer lifestyle">
+  <meta property="og:title" content="Vibe Coding | Aesthetic Programming Experience">
+  <meta property="og:description" content="Experience programming in a relaxed, aesthetic environment that boosts creativity and productivity.">
+  <meta property="og:image" content="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg">
+  <meta property="og:url" content="https://vibecoding.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  <script type="module" crossorigin src="/assets/index-0f0c7bf8.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-d8547b31.js">
+  <link rel="stylesheet" href="/assets/index-ea0f79c8.css">
 </head>
 <body>
   <div class="gradient-bg"></div>
@@ -81,19 +92,10 @@
     <div class="container">
       <h2>Experience <span class="gradient-text">Vibe Coding</span></h2>
       <p class="section-subtitle">Watch this video to get into the perfect coding mindset</p>
-      <div class="video-placeholder">
-        <div class="video-thumbnail">
-          <img src="https://images.pexels.com/photos/7014337/pexels-photo-7014337.jpeg" alt="Coding with lofi music">
-          <div class="play-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="64px" height="64px">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
-        <p class="video-description">
-          "Lofi Coding Session | Relaxing Music for Programming" - Click to watch on YouTube
-        </p>
+      
+      <!-- Production-ready YouTube embed -->
+      <div class="video-container" id="video-container">
+        <div id="youtube-player"></div>
       </div>
     </div>
   </section>
@@ -197,6 +199,8 @@
     </div>
   </footer>
 
+  <!-- YouTube API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   
 </body>
 </html>
